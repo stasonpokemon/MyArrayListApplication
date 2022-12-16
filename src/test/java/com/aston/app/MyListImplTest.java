@@ -8,13 +8,13 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Comparator;
 
-public class MyListTest {
+public class MyListImplTest {
 
-    private MyList<String> list;
+    private MyListImpl<String> list;
 
     @Before
     public void setUp() {
-        list = new MyList<String>() {{
+        list = new MyListImpl<String>() {{
             add("Hello");
             add("Bye");
             add("Good");
@@ -162,7 +162,7 @@ public class MyListTest {
 
     @Test
     public void trimToSizeTest() throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-        Method method = MyList.class.getDeclaredMethod("getElementDataLength");
+        Method method = MyListImpl.class.getDeclaredMethod("getElementDataLength");
         method.setAccessible(true);
         int elementDataBeforeTrim = (int) method.invoke(list, null);
         list.trimToSize();
