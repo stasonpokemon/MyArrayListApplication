@@ -49,6 +49,14 @@ public class MyListTest {
     }
 
     @Test
+    public void addNew1000000ElementTest() {
+        for (int i = 0; i < 1000000; i++) {
+            list.add("new " + i);
+        }
+        Assert.assertEquals(1000003, list.size());
+    }
+
+    @Test
     public void addNewElementByIndex() {
         String newString = "new";
         String movedString = list.get(1);
@@ -201,7 +209,7 @@ public class MyListTest {
     }
 
     @Test
-    public void sortTest(){
+    public void sortTest() {
         list.sort(Comparator.naturalOrder());
         Assert.assertEquals("Bye", list.get(0));
         Assert.assertEquals("Good", list.get(1));
